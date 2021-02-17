@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>YukiShare</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>YukiShare</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="header-inner">
+      <div class="header-inner-left">
+        <%= link_to image_tag("/assets/logo.png"), "/" %>
+        <div class="searchbox">
+          <input type="text" class="search" placeholder="エリア">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="searchbox">
+          <input type="text" class="search" placeholder="キーワード">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+      <div class="header-inner-right">
+        <%= link_to "ログイン", "/users/sign_in",{class: "signin-btn"} %>
+        <%= link_to "登録する", "/users/sign_up",{class: "signup-btn"} %>
+      </div>
+    </nav>
+  </header>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%
+=begin%>
+ <%= link_to("ログアウト",destroy_user_session_path, method: :delete) %> 
+<%
+=end%>
+  <%= yield %>
+  <footer class="footer">
+    <p class="copyright">© 2020 POTEPAN.INC.</p>
+  </footer>
+</body>
+
 </html>
