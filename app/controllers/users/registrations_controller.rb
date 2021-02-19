@@ -38,6 +38,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def account
+
+  end
+
+  def profile_edit
+    
+  end
+
+  def profile_update
+    params.requier(:user).permit(:username, :image, :image_cache)
+    current_user.assign_attributes(account_update_params)
+    if current_user.update
+      redirect_to profile_user_registration_path
+      flash[:notice] = "更新しました"
+    else
+      render "profile_edit"
+    end
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -53,12 +72,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # The path used after sign up.
+
   def after_sign_up_path_for(resource)
-    user_path(resource)
+    profile_user_registration_path(resource)
   end
 
   def after_update_path_for(resource)
-    account_user_path(resource)
+    edit_user_registration_path(resource)
   end
 
   # The path used after sign up for inactive accounts.

@@ -4,21 +4,6 @@
 <%= render "users/shared/error_messages", resource: resource %>
 
 <div class="field">
-  <% if current_user.image? %>
-  <%= image_tag current_user.image.url(:thumb) ,class: "icon"%>
-  <% else %>
-  <%= image_tag "default.jpg" ,class: "icon" %>
-  <% end %>
-  <%= f.label :image ,"アイコン" %><br />
-  <%= f.file_field :image %>
-</div>
-
-<div class="field">
-  <%= f.label :username ,"名前" %><br />
-  <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-</div>
-
-<div class="field">
   <%= f.label :email %><br />
   <%= f.email_field :email, autocomplete: "email" %>
 </div>
@@ -28,17 +13,8 @@
 <% end %>
 
 <div class="field">
-  <%= f.label :password, "変更後パスワード（変更する場合のみ入力）
-"%> <br />
+  <%= f.label :password, "変更後パスワード（変更する場合のみ入力）"%> <br />
   <%= f.password_field :password, autocomplete: "new-password" %>
-  <%
-=begin%>
-  <% if @minimum_password_length %>
-  <br />
-  <em><%= @minimum_password_length %> characters minimum</em>
-  <% end %>
-  <%
-=end%>
 </div>
 
 <div class="field">
@@ -56,7 +32,8 @@
 </div>
 <% end %>
 
-<%= link_to "戻る", :back %>
+<%= link_to "プロフィール", "/users/profile" %>
+<%= link_to "戻る", "/users/account" %>
 
 <h3>アカウント削除</h3>
 

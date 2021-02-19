@@ -1,0 +1,42 @@
+<main>
+  <div class="sign-wrapper">
+
+    <div class="sign-title">
+      <p>プロフィール</p>
+    </div>
+
+    <%= form_for current_user, url: update_user_registration_path, html: { method: :patch } do |f| %>
+
+    <div class="field-box">
+      <div class="field">
+        <div class="field">
+          <% if current_user.image? %>
+          <%= image_tag current_user.image.url(:thumb) ,class: "icon"%>
+          <% else %>
+          <%= image_tag "default.jpg" ,class: "icon" %>
+          <% end %>
+          <%= f.label :image ,"アイコン画像" %>
+          <%= f.file_field :image %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :username, "名前" %>
+        <%= f.text_field :username, autoforcus: true, placeholder: "名前を入力", class: "sign-input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :introduction, "自己紹介" %>
+        <%= f.text_field :introduction, placeholder: "自己紹介を入力", class: "sign-input" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "更新", class: "sign-submit" %>
+      </div>
+      <% end %>
+
+      <%= link_to "戻る", edit_user_registration_path %>
+
+    </div>
+  </div>
+</main>

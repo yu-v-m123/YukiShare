@@ -1,0 +1,31 @@
+<main>
+  <div class="sign-wrapper">
+
+    <div class="sign-title">
+      <p>アカウント</p>
+    </div>
+
+    <div class="field-box">
+
+      <div class="field">
+        <p>メールアドレス</p>
+        <div class="email">
+          <%= current_user.email %>
+        </div>
+      </div>
+
+      <div class="field">
+        <p>パスワード</p>
+        <div class="password">
+          <%= current_user.password %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= link_to "編集", edit_user_registration_path %>
+        <%= link_to "プロフィール", profile_user_registration_path %>
+      </div>
+
+    </div>
+  </div>
+</main>
