@@ -47,9 +47,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def profile_update
-    params.requier(:user).permit(:username, :image, :image_cache)
+    params.requier(:user).permit(:username, :image, :image_cache, :introduction)
     current_user.assign_attributes(account_update_params)
-    if current_user.update
+    
+    if current_user.save
       redirect_to profile_user_registration_path
       flash[:notice] = "更新しました"
     else

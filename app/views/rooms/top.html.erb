@@ -1,0 +1,35 @@
+<main>
+  <div class="wrapper">
+    <div class="container">
+      <div class="top-search">
+        <h2 class="top-search-heading">Potepan Shareでまだ体験したことのない旅をしよう</h2>
+        <p class="top-description">エリア</p>
+        <input type="text" class="top-search-area" placeholder="東京">
+        <%= link_to "探す", "/", {class: "top-search-btn"} %>
+      </div>
+    </div>
+    <div class="recommended">
+      <div class="recommended-area">
+        <h2 class="recommended-text">おすすめのエリア</h2>
+        <div class="recommended-img">
+          <div class="areabox">
+            <span class="img-text">東京</span>
+            <%= link_to image_tag("/assets/img_tokyo.jpg", class: "area-btn"), "/" %>
+          </div>
+          <div class="areabox">
+            <span class="img-text">大阪</span>
+            <%= link_to image_tag("/assets/img_osaka.jpg", class: "area-btn"), "/" %>
+          </div>
+          <div class="areabox">
+            <span class="img-text">京都</span>
+            <%= link_to image_tag("/assets/img_kyoto.jpg", class: "area-btn"), "/" %>
+          </div>
+          <div class="areabox">
+            <span class="img-text">札幌</span>
+            <%= link_to image_tag("/assets/img_sapporo.jpg", class: "area-btn"), "/"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

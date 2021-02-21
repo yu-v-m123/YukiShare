@@ -16,7 +16,7 @@
   <header class="header">
     <nav class="header-inner">
       <div class="header-inner-left">
-        <%= link_to image_tag("/assets/logo.png"), "/" %>
+        <%= link_to image_tag("/assets/logo.png"), "/top" %>
         <div class="searchbox">
           <input type="text" class="search" placeholder="エリア">
           <i class="fas fa-map-marker-alt"></i>
@@ -27,14 +27,33 @@
         </div>
       </div>
       <div class="header-inner-right">
-        <%= link_to "ログイン", "/users/sign_in",{class: "signin-btn"} %>
-        <%= link_to "登録する", "/users/sign_up",{class: "signup-btn"} %>
+        <% if login? %>
+        <%= link_to("ログイン", new_user_session_path, class: "signin-btn" ) %>
+        <%= link_to("登録する", new_user_registration_path, class: "signup-btn") %>
+        <% else %>
+        <p class="top-name"><%= current_user.username %></p>
+
+        <% if current_user.image? %>
+        <%= image_tag current_user.image.url(:thumb), class: "top-icon" %>
+        <% else %>
+        <%= image_tag "default.jpg" ,class: "top-icon" %>
+        <% end %>
+        <div class="hamburger">
+          <ul class="menu">
+            <li class="menu-list"><%= link_to("ルーム登録", "/top", class: "menu-list-a") %></li>
+            <li class="menu-list"><%= link_to("予約済みルーム一覧", "/top", class: "menu-list-a") %></li>
+            <li class="menu-list"><%= link_to("登録済みルーム一覧", "/top", class: "menu-list-a") %></li>
+            <li class="menu-list"><%= link_to("設定", account_user_registration_path, {class: "menu-list-a"}) %></li>
+            <li class="menu-list"><%= link_to("ログアウト", destroy_user_session_path, {method: :delete, class: "menu-list-a"}) %></li>
+          </ul>
+        </div>
+        <% end %>
       </div>
     </nav>
   </header>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= link_to("ログアウト",destroy_user_session_path, method: :delete) %>
+
   <%= yield %>
   <footer class="footer">
     <p class="copyright">© 2020 POTEPAN.INC.</p>

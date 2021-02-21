@@ -14,7 +14,7 @@
  *= require_self
  */
 
- body {
+body {
   margin: 0;
 }
 
@@ -62,6 +62,29 @@
   font-size: 16px;
   margin-left: auto;
   margin-right: 40px;
+  display: flex;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.top-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+.top-name {
+  color: #fff;
+  font-size: 14px;
+  padding-top: 5px;
+  margin-right: 20px;
 }
 
 .signin-btn {
@@ -86,6 +109,28 @@
   color: #fff;
   background-color: #5a6268;
   transition: 0.2s;
+}
+
+.hamburger {
+  background-color: #fff;
+  z-index: 100;
+  width: 220px;
+  height: auto;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+}
+
+.menu {
+  list-style: none;
+  padding-right: 20px;
+}
+
+.menu-list-a {
+  text-decoration: none;
+  color: #000;
+  margin: 4px 0;
+  display: inline-block;
 }
 
 main {
@@ -167,11 +212,4 @@ main {
 .create-account {
   text-decoration: none;
   color: #007bff;
-}
-
-.icon {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 50%;
 }
