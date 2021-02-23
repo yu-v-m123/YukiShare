@@ -1,0 +1,43 @@
+<main>
+
+  <div class="newroom">
+
+    <div class="newroom-side">
+      <div class="side-title-box">
+        <%= link_to "基本情報", new_room_path, {class: "side-title"} %>
+      </div>
+    </div>
+
+    <div class="newroom-wrapper">
+      <div class="newroom-container">
+
+        <div class="newroom-title">
+          <p>ルーム情報登録</p>
+        </div>
+
+        <%= form_for @room, url: new_room_path do |f| %>
+
+        <table class="newroom-table">
+          <tr>
+            <th><%= f.label :room_name, "ルーム名" %></th>
+            <td><%= f.text_field :room_name, placeholder: "ルーム名を入力", class: "room-field" %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :room_introduction, "ルーム紹介" %></th>
+            <td><%= f.text_field :room_introduction, placeholder: "ルーム説明を入力", class: "room-field" %></td>
+          </tr>
+        </table>
+
+        <div class="newroom-submit">
+          <%= f.submit "登録", class: "newroom-btn" %>
+        </div>
+
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+
+</main>

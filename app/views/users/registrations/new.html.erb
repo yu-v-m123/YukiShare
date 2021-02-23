@@ -10,45 +10,22 @@
 
     <div class="field-box">
       <div class="field">
-        <%
-=begin%>
-        <%= f.label :username %><br />
-        <%
-=end%>
+
         <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "ユーザー名", class: "sign-input" %>
       </div>
 
       <div class="field">
-        <%
-=begin%>
-        <%= f.label :email %><br />
-        <%
-=end%>
+
         <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", class: "sign-input"%>
       </div>
 
       <div class="field">
-        <%
-=begin%>
-        <%= f.label :password %>
-        <%
-=end%>
-        <%
-=begin%>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%
-=end%>
+
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "sign-input" %>
       </div>
 
       <div class="field">
-        <%
-=begin%>
-        <%= f.label :password_confirmation %><br />
-        <%
-=end%>
+
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", class: "sign-input" %>
       </div>
 

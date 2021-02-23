@@ -38,25 +38,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def account
+  # def account
 
-  end
+  # end
 
-  def profile_edit
+  # def profile_edit
     
-  end
+  # end
 
-  def profile_update
-    params.requier(:user).permit(:username, :image, :image_cache, :introduction)
-    current_user.assign_attributes(account_update_params)
-    
-    if current_user.save
-      redirect_to profile_user_registration_path
-      flash[:notice] = "更新しました"
-    else
-      render "profile_edit"
-    end
-  end
+  # def profile_update
+  #   params.requier(current_user).permit(:username, :image, :image_cache, :introduction)
+  #   if current_user.save
+  #     redirect_to "/users/profile"
+  #   else
+  #     render "profile_edit"
+  #   end
+  # end
 
   protected
 
@@ -72,6 +69,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       ])
   end
 
+  # def update_resource(resource, params)
+  #   resource.update_without_password(params)
+  # end
+
   # The path used after sign up.
 
   def after_sign_up_path_for(resource)
@@ -79,7 +80,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    edit_user_registration_path(resource)
+    account_user_registration_path(resource)
   end
 
   # The path used after sign up for inactive accounts.

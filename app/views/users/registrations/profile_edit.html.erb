@@ -1,42 +1,73 @@
 <main>
-  <div class="sign-wrapper">
 
-    <div class="sign-title">
-      <p>プロフィール</p>
+  <div class="setting-wrapper">
+
+    <div class="profile-title-container">
+      <div class="account-title">
+        <%= link_to "アカウント", account_user_registration_path, {class: "account-title-a"} %>
+      </div>
+      <div class="profile-title-main">
+        <%= link_to "プロフィール", profile_user_registration_path, {class: "profile-title-main-a"} %>
+      </div>
     </div>
 
-    <%= form_for current_user, url: update_user_registration_path, html: { method: :patch } do |f| %>
+    <div class="profile-container">
+      <div class="profile-box">
 
-    <div class="field-box">
-      <div class="field">
-        <div class="field">
-          <% if current_user.image? %>
-          <%= image_tag current_user.image.url(:thumb) ,class: "icon"%>
-          <% else %>
-          <%= image_tag "default.jpg" ,class: "icon" %>
+        <div class="profile-box-title">
+          <div class="profile-box-title-p">
+            <p>プロフィール</p>
+          </div>
+        </div>
+
+        <%= form_for current_user, url: update_user_registration_path, html: { method: :patch } do |f| %>
+
+
+        <div class="field-container">
+          <div class="image-box">
+            <div class="user-image">
+              <% if current_user.image? %>
+              <%= image_tag current_user.image.url(:thumb) ,class: "icon"%>
+              <% else %>
+              <%= image_tag "default.jpg" ,class: "icon" %>
+              <% end %>
+            </div>
+            <div class="profile-field">
+              <div class="required-box">
+                <%= f.label :image, "アイコン画像", {class: "required"} %>
+              </div>
+              <div class="input-box">
+                <%= f.file_field :image, class: "profile-input-img" %>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="profile-field">
+            <div class="required-box">
+              <%= f.label :username, "名前", {class: " required"} %>
+            </div>
+            <div class="input-box">
+              <%= f.text_field :username, autoforcus: true, placeholder: "名前を入力", class: "profile-input" %>
+            </div>
+          </div>
+
+          <div class="profile-field">
+            <div class="required-box">
+              <%= f.label :introduction, "自己紹介", {class: "required"} %>
+            </div>
+            <div class="input-box">
+              <%= f.text_field :introduction, placeholder: "自己紹介を入力", class: "profile-input-text" %>
+            </div>
+          </div>
+
+          <div class="setting-actions">
+            <%= f.submit "更新", class: "edit-submit" %>
+          </div>
           <% end %>
-          <%= f.label :image ,"アイコン画像" %>
-          <%= f.file_field :image %>
+
         </div>
       </div>
-
-      <div class="field">
-        <%= f.label :username, "名前" %>
-        <%= f.text_field :username, autoforcus: true, placeholder: "名前を入力", class: "sign-input" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :introduction, "自己紹介" %>
-        <%= f.text_field :introduction, placeholder: "自己紹介を入力", class: "sign-input" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "更新", class: "sign-submit" %>
-      </div>
-      <% end %>
-
-      <%= link_to "戻る", edit_user_registration_path %>
-
     </div>
   </div>
 </main>

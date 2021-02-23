@@ -32,15 +32,17 @@
         <%= link_to("登録する", new_user_registration_path, class: "signup-btn") %>
         <% else %>
         <p class="top-name"><%= current_user.username %></p>
-
-        <% if current_user.image? %>
-        <%= image_tag current_user.image.url(:thumb), class: "top-icon" %>
-        <% else %>
-        <%= image_tag "default.jpg" ,class: "top-icon" %>
-        <% end %>
+        <input type="checkbox" id="hamburger-btn-check">
+        <label for="hamburger-btn-check" class="hamburger-btn">
+          <% if current_user.image? %>
+          <%= image_tag current_user.image.url(:thumb), class: "top-icon" %>
+          <% else %>
+          <%= image_tag "default.jpg" ,class: "top-icon" %>
+          <% end %>
+        </label>
         <div class="hamburger">
           <ul class="menu">
-            <li class="menu-list"><%= link_to("ルーム登録", "/top", class: "menu-list-a") %></li>
+            <li class="menu-list"><%= link_to("ルーム登録", new_room_path, class: "menu-list-a") %></li>
             <li class="menu-list"><%= link_to("予約済みルーム一覧", "/top", class: "menu-list-a") %></li>
             <li class="menu-list"><%= link_to("登録済みルーム一覧", "/top", class: "menu-list-a") %></li>
             <li class="menu-list"><%= link_to("設定", account_user_registration_path, {class: "menu-list-a"}) %></li>

@@ -18,6 +18,14 @@ body {
   margin: 0;
 }
 
+.notice {
+  z-index: 2;
+}
+
+.alert {
+  z-index: 2;
+}
+
 .header {
   background-color: #000;
   width: 100%;
@@ -119,6 +127,15 @@ body {
   position: absolute;
   top: 70px;
   right: 10px;
+  display: none;
+}
+
+#hamburger-btn-check {
+  display: none;
+}
+
+#hamburger-btn-check:checked~.hamburger {
+  display: block;
 }
 
 .menu {
@@ -140,7 +157,6 @@ main {
 .footer {
   width: 100%;
   height: 180px;
-  margin-top: 64px;
   padding-top: 70px;
   padding-bottom: 70px;
   background-color: #111;
@@ -212,4 +228,347 @@ main {
 .create-account {
   text-decoration: none;
   color: #007bff;
+}
+
+.setting-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.account-title-container {
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid #e2e2e2;
+  background-color: #fff;
+  width: 15%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.profile-title-container {
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid #e2e2e2;
+  background-color: #fff;
+  width: 15%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.account-title-main {
+  margin-right: 20px;
+  border-right: 3px solid #4a90e2;
+  padding: 5px 20px 5px 5px;
+}
+
+.profile-title-main {
+  margin-right: 20px;
+  border-right: 3px solid #4a90e2;
+  padding: 5px 10px 5px 5px;
+}
+
+.account-title {
+  padding-right: 20px;
+  padding: 5px 45px 5px 5px;
+}
+
+.profile-title {
+  padding-right: 20px;
+  padding: 5px 30px 5px 5px;
+}
+
+.account-title-main-a {
+  color: #4a90e2;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.profile-title-main-a {
+  color: #4a90e2;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.account-title-a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+}
+
+.profile-title-a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+}
+
+.account-container {
+  background-color: #F6F8F9;
+  width: 100%;
+}
+
+.account-box {
+  margin: 0 auto;
+  margin-top: 40px;
+  background-color: #fff;
+  width: 50%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: rgba(21, 27, 38, 0.15) 0px 1px 3px 0px;
+  text-align: center;
+}
+
+.account-box-title {
+  text-align: left;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.account-box-title-p {
+  font-size: 20px;
+}
+
+.account-field {
+  display: flex;
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+  padding: 10px 20px 10px 20px;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+.account-field p {
+  font-weight: 700;
+}
+
+.account-email {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.account-password {
+  margin-left: 80px
+}
+
+.account-password p {
+  font-weight: 100;
+  letter-spacing: 1.3px;
+}
+
+.setting-action {
+  padding: 20px 20px;
+}
+
+.setting-btn {
+  background-color: #4a90e2;
+  border-radius: 5px;
+  padding: 10px 50px;
+  width: 50px;
+  text-align: none;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.profile-container {
+  background-color: #F6F8F9;
+  width: 100%;
+}
+
+.profile-box {
+  margin: 0 auto;
+  margin-top: 40px;
+  background-color: #fff;
+  width: 60%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: rgba(21, 27, 38, 0.15) 0px 1px 3px 0px;
+  text-align: center;
+
+}
+
+.profile-box-title {
+  text-align: left;
+  margin-left: 20px;
+  padding-top: 10px;
+  border-bottom: 1px solid #eaedef;
+}
+
+.profile-box-title-p {
+  font-size: 20px;
+}
+
+.user-image {
+  padding: 30px 0;
+}
+
+.required {
+  margin-left: 0px;
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+  width: 150px;
+}
+
+.required::after {
+  content: "必須";
+  background-color: #ff0000a8;
+  font-size: 13px;
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px;
+  margin-left: 6px;
+}
+
+.profile-field {
+  display: flex;
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+  padding: 20px 0 40px 10px;
+  margin: 0 15px;
+}
+
+.required-box {
+  text-align: left;
+  padding-right: 20px;
+}
+
+.profile-input {
+  width: 600px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  outline: 0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.profile-input-img {
+  width: 480px;
+  outline: 0;
+  font-size: 16px;
+}
+
+.profile-input-text {
+  width: 600px;
+  padding: 10px 10px 130px 10px;
+  border: 1px solid #ced4da;
+  outline: 0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.setting-actions {
+  text-align: left;
+  margin-left: 30px;
+}
+
+.edit-submit {
+  width: 150px;
+  padding: 7px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #4a90e2;
+  font-size: 16px;
+  border: 0px;
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.edit-wrapper {
+  min-height: 100vh;
+}
+
+.edit-container {
+  margin: 0 auto;
+  margin-top: 40px;
+  background-color: #fff;
+  width: 600px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: rgba(21, 27, 38, 0.15) 0px 1px 3px 0px;
+  text-align: center;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.edit-title {
+  padding: 25px 0 5px 0;
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  height: auto;
+}
+
+.edit-input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 360px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: 0;
+}
+
+.account-edit-btn {
+  padding: 7px;
+  width: 380px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #4a90e2;
+  font-size: 16px;
+  border: 0px;
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.back-box {
+  display: flex;
+  margin: 15px 0;
+  justify-content: center;
+}
+
+.back {
+  padding: 7px;
+  width: 360px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  border: 0px;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  color: #007bff;
+  border: 1px solid #6D767D;
+  transition: 0.2s;
+}
+
+.back:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  transition: 0.2s;
+}
+
+.delete-box {
+  margin-top: 50px;
+}
+
+.delete-btn-action {
+  padding: 7px;
+  width: 380px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #4a90e2;
+  font-size: 16px;
+  border: 0px;
+  cursor: pointer;
+  margin: 0 0 15px 0;
 }

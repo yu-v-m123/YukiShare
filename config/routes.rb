@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     patch '/users' => 'users/registrations#update_edit', as: 'update_user_registration'
   end
   
+  get "/rooms/new" => "rooms#new", as: "new_room"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
