@@ -17,17 +17,32 @@
 
         <%= form_for @room, url: new_room_path do |f| %>
 
-        <table class="newroom-table">
-          <tr>
-            <th><%= f.label :room_name, "ルーム名" %></th>
-            <td><%= f.text_field :room_name, placeholder: "ルーム名を入力", class: "room-field" %></td>
-          </tr>
+        <div class="newroom-tables">
+          <div class="newroom-box">
+            <div class="room-label-first"><%= f.label :room_name, "ルーム名", {class: "room-label-text"} %></div>
+            <div class="room-field-box"><%= f.text_field :room_name, placeholder: "ルーム名を入力", class: "room-field" %></div>
+          </div>
 
-          <tr>
-            <th><%= f.label :room_introduction, "ルーム紹介" %></th>
-            <td><%= f.text_field :room_introduction, placeholder: "ルーム説明を入力", class: "room-field" %></td>
-          </tr>
-        </table>
+          <div class="newroom-box">
+            <div class="room-label-second"><%= f.label :room_introduction, "ルーム紹介", {class: "room-label-text"} %></div>
+            <div class="room-field-box"><%= f.text_field :room_introduction, placeholder: "ルーム説明を入力", class: "room-field-long" %></div>
+          </div>
+
+          <div class="newroom-box">
+            <div class="room-label-third"><%= f.label :room_price, "料金", {class: "room-label-text"} %></div>
+            <div class="room-field-box"><%= f.number_field :room_price, placeholder: "一日あたりの料金を入力", class: "room-field" %></div>
+          </div>
+
+          <div class="newroom-box">
+            <div class="room-label-third"><%= f.label :room_address, "住所", {class: "room-label-text"} %></div>
+            <div class="room-field-box"><%= f.text_field :room_address, placeholder: "住所を入力", class: "room-field" %></div>
+          </div>
+
+          <div class="newroom-box-last">
+            <div class="room-label"><%= f.label :room_image, "ルーム画像", {class: "room-label-text"} %></div>
+            <div class="room-field-box"><%= f.file_field :room_image, {class: "room-field-last"} %></div>
+          </div>
+        </div>
 
         <div class="newroom-submit">
           <%= f.submit "登録", class: "newroom-btn" %>

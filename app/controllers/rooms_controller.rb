@@ -1,9 +1,8 @@
-class RoomsController < ApplicationController  
+class RoomsController < ApplicationController 
   def top
   end
 
   def index
-    @rooms = Room.all
   end
 
   def new
@@ -11,22 +10,31 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new
+    @room = Room.new(room_params)
+    @room.user_id = current_user.id
+    if @room.save
+      redirect_to "/top"
+      flash[:notice] = "ルームを登録しました"
+    else
+      render "new"
+    end
   end
 
   def show
-
   end
 
   def edit
-
   end
 
   def update
-
   end
 
   def destroy
-
   end
+end
+
+private
+
+def room_params
+  params.require(:room).permit(:room_name, :room_introduction, :room_price, :room_address, :room_image)
 end

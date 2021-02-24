@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get '/top' => "rooms#top"
-
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
+  
+  get '/top' => "rooms#top"
 
   devise_scope :user do
     delete '/users' => 'users/sessions#destroy'
@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   end
   
   get "/rooms/new" => "rooms#new", as: "new_room"
+  post "/rooms/create" => "rooms#create", as: "room"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
