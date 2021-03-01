@@ -27,9 +27,9 @@
           <div class="image-box">
             <div class="user-image">
               <% if current_user.image? %>
-              <%= image_tag current_user.image.url(:thumb) ,class: "icon"%>
+              <%= image_tag current_user.image.url(:thumb) ,class: "icon", alt: "アイコン" %>
               <% else %>
-              <%= image_tag "default.jpg" ,class: "icon" %>
+              <%= image_tag "default.jpg" ,class: "icon", alt: "アイコン" %>
               <% end %>
             </div>
             <div class="profile-field">

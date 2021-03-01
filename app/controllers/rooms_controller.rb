@@ -3,6 +3,8 @@ class RoomsController < ApplicationController
   end
 
   def index
+    # @users = User.all
+    @rooms = Room.all
   end
 
   def new
@@ -21,6 +23,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
   end
 
   def edit

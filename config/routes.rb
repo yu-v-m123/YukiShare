@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   get "/rooms/new" => "rooms#new", as: "new_room"
   post "/rooms/create" => "rooms#create", as: "room"
+  get "/rooms/index" => "rooms#index", as: "index_room"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
