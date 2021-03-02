@@ -1,0 +1,14 @@
+<main>
+  <div class="post-wrapper">
+    <div class="room-count">
+      <p>登録済みルーム一覧</p>
+    </div>
+  </div>
+  <% current_user.rooms.each do |r| %>
+  <img src="<%= r.room_image %>" alt="部屋画像" >
+  <%= r.room_name %>
+  <%= r.room_introduction %>
+  <%= r.room_price %>
+  <%= r.created_at %>
+  <% end %>
+</main>
