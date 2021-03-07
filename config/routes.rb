@@ -19,5 +19,11 @@ Rails.application.routes.draw do
   get "/rooms/index" => "rooms#index", as: "index_room"
   get "/rooms/posts" => "rooms#show", as: "post_room"
   get "/rooms/:id" => "rooms#edit", as: "edit_room"
+  
+  resources :rooms do
+    resources :reservation
+    post "reservation/confirm" => "reservation#confirm"
+  end 
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

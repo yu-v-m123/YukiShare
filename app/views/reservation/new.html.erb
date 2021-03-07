@@ -1,0 +1,19 @@
+<main>
+
+  <h1>予約画面</h1>
+
+  <p>¥<%= @room.room_price %>／日</p>
+
+  <%= form_for [@room, @reservation], url: room_reservation_confirm_path(@room), local: true do |f| %>
+  
+  <p>開始日</p>
+  <%= f.date_field :start %>
+  <p>終了日</p>
+  <%= f.date_field :finish %>
+  <p>人数</p>
+  <%= f.number_field :count %>
+
+  <%= f.submit "確認画面へ進む" %>
+  <% end %>
+
+</main>

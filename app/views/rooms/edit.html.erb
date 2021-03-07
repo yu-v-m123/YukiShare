@@ -1,1 +1,16 @@
-<p>投稿予約ページだよ</p>
+<main>
+
+  <%= image_tag "#{@room.room_image}" %>
+  <%= @room.room_name %>
+  <%= @room.room_address %>
+
+  <p>¥<%= @room.room_price %>／日</p>
+  <%= @room.room_introduction %>
+
+  <% if login? %>
+  <%= link_to("ログインして予約する", new_user_session_path, class: "signin-btn" ) %>
+  <% else %>
+  <%= link_to "予約画面に進む", new_room_reservation_path(@room) %>
+  <% end %>
+
+</main>

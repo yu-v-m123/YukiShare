@@ -4,15 +4,14 @@ class RoomsController < ApplicationController
 
   def index
   end
-
+  
   def new
     @room = Room.new
   end
-
+  
   def create
     @room = Room.new(room_params)
     @room.user_id = current_user.id
-    # binding.pry
     if @room.save
       redirect_to "/top"
       flash[:notice] = "ルームを登録しました"
@@ -23,10 +22,11 @@ class RoomsController < ApplicationController
 
   def show
   end
-
+  
   def edit
+    @room = Room.find(params[:id])
   end
-
+  
   def update
   end
 
