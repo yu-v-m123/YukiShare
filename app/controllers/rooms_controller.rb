@@ -25,6 +25,7 @@ class RoomsController < ApplicationController
   
   def edit
     @room = Room.find(params[:id])
+    @user = User.find(params[:id])
   end
   
   def update

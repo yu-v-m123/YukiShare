@@ -1,5 +1,31 @@
-<p>確認画面だよ</p>
+<main>
 
-<%= @reservation.start %>
-<%= @reservation.finish %>
-<%= @reservation.count %>
+  <div class="confirm-wrapper">
+
+    <div class="confirm-container">
+      <div class="confirm-title">
+        <h2>予約内容確認</h2>
+      </div>
+      <p class="room-reservation-price">
+        ¥<%= @price %>／日
+      </p>
+      <p class="reservation-data">
+        <%= @reservation.start %>
+      </p>
+      <p class="reservation-data">
+        <%= @reservation.finish %>
+      </p>
+      <p class="reservation-data">
+        使用日数 : <%= @day %>日
+      </p>
+      <p class="reservation-data">
+        人数 : <%= @reservation.count %>人
+      </p>
+      <p class="reservation-data">
+      合計金額 : <%= @sum %> 円
+      </p>
+    </div>
+
+  </div>
+
+</main>
