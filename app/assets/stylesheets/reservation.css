@@ -1,7 +1,3 @@
-// Place all the styles related to the reservation controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
 .reservation-form-page {
   margin: 0 auto;
   width: 1400px;
@@ -134,10 +130,14 @@ table .post-introduction {
 }
 
 .reservation-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-size: 14px;
-
 }
 
 .reservation_form_field {
@@ -218,8 +218,11 @@ span {
 }
 
 .dicision-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
   font-size: 18px;
@@ -239,10 +242,12 @@ span {
   text-decoration: none;
   font-weight: bold;
   color: #4a90e2;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
 .discription-link:hover {
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   color: #8fb5e0;
 }
@@ -254,3 +259,4 @@ span {
 .last-text-l {
   margin-right: 15px;
 }
+/*# sourceMappingURL=reservation.css.map */

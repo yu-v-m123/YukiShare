@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :reservation
     post "reservation/confirm" => "reservation#confirm"
+    post "reservation/create" => "reservation#create"
   end 
 
+  get "/reservations/index" => "reservation#index", as: "index_reservation"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

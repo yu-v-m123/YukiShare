@@ -1,2 +1,40 @@
-<h1>Reservation#index</h1>
-<p>Find me in app/views/reservation/index.html.erb</p>
+<main>
+  <div class="reserved-wrapper">
+    <h2>予約済みルーム一覧</h2>
+    <table>
+
+      <thead>
+        <tr class="center">
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>合計料金</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+      <% current_user.reservation.each do |r| %>
+
+      <tbody>
+        <% if r.reservation_image? %>
+
+        <tr>
+          <td><%= link_to image_tag(r.reservation_image, class: "post-image", alt: "部屋画像"), edit_room_path(r.room_id), class: "post-image-link" %></td>
+
+          <% else %>
+          <td><%= link_to image_tag("default.jpg", class: "post-image", alt: "アイコン"), edit_room_path(r.room_id), class: "post-image-link" %></td>
+          <% end %>
+          <td class="post-name-box"><%= link_to r.reservation_name, edit_room_path(r.room_id), class: "post-name-link" %></td>
+          <td class="post-introduction"><%= r.reservation_introduction %></td>
+          <td class="post-text">¥<%= r.sum %></td>
+          <td class="post-text"><%= r.start %></td>
+          <td class="post-text"><%= r.finish %></td>
+          <td class="post-text"><%= r.created_at %></td>
+        </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</main>

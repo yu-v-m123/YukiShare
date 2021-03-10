@@ -1,16 +1,38 @@
 <main>
-  <div class="post-wrapper">
-    <div class="room-count">
-      <p>登録済みルーム一覧</p>
-    </div>
+  <div class="reserved-wrapper">
+    <h2>登録済みルーム一覧</h2>
+    <table>
+
+      <thead>
+        <tr class="center">
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>料金</th>
+          <th>作成日</th>
+        </tr>
+      </thead>
+
+      <% current_user.rooms.each do |r| %>
+
+      <tbody>
+
+        <% if r.room_image? %>
+
+        <tr>
+          <td><%= link_to image_tag(r.room_image.url, class: "post-image", alt: "部屋画像"), edit_room_path(r.id), class: "post-image-link" %></td>
+          <% else %>
+          <td><%= link_to image_tag("default.jpg", class: "post-image", alt: "アイコン"), edit_room_path(r.id), class: "post-image-link" %></td>
+          <% end %>
+
+          <td class="post-name-box"><%= link_to r.room_name, edit_room_path(r.id), class: "post-name-link" %></td>
+          <td class="post-introduction"><%= r.room_introduction %></td>
+          <td class="post-text">¥<%= r.room_price %></td>
+          <td class="post-text"><%= r.created_at %></td>
+        </tr>
+
+        <% end %>
+      </tbody>
+    </table>
   </div>
-  <% current_user.rooms.each do |r| %>
-
-  <img src="<%= r.room_image %>" alt="部屋画像">
-  <%= r.room_name %>
-  <%= r.room_introduction %>
-  <%= r.room_price %>
-  <%= r.created_at %>
-
-  <% end %>
 </main>
