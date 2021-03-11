@@ -1,6 +1,7 @@
 <main>
 
   <div class="confirm-wrapper">
+    <%= render "users/shared/error_reservation", obj: @reservation %>
     <%= form_for @reservation, url: room_reservation_create_path do |f| %>
     <div class="confirm-container">
       <div class="confirm-title">

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     delete '/users' => 'users/sessions#destroy'
     get 'users/account' => 'users/registrations#account_index', as: 'account_user_registration'
     get 'users/profile' => 'users/registrations#profile_edit', as: 'profile_user_registration'
+    patch 'users/update' => 'users/registrations#profile_update', as: 'profile_update_user_registration'
     patch '/users' => 'users/registrations#update_edit', as: 'update_user_registration'
   end
   

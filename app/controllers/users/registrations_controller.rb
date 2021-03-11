@@ -46,14 +46,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     
   # end
 
-  # def profile_update
-  #   params.requier(current_user).permit(:username, :image, :image_cache, :introduction)
-  #   if current_user.save
-  #     redirect_to "/users/profile"
-  #   else
-  #     render "profile_edit"
-  #   end
-  # end
+  def profile_update
+    if current_user.update(update_params)
+      redirect_to profile_user_registration_path
+      flash[:notice] = "プロフィールを更新しました"
+    else
+      render "profile_edit"
+    end
+  end
 
   protected
 
@@ -69,6 +69,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       ])
   end
 
+  def update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :image, :introduction])
+  end
   # def update_resource(resource, params)
   #   resource.update_without_password(params)
   # end

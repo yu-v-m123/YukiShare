@@ -14,7 +14,7 @@ class ReservationController < ApplicationController
     @reservation.user_id = current_user.id
     @room = Room.find(params[:room_id])
     @reservation.room_id = @room.id
-    @day = (@reservation.finish-@reservation.start).to_int
+    @day = (@reservation.finish - @reservation.start).to_int
     @price = @room.room_price
     @sum = (@day*@price)*@reservation.count
     @reservation.reservation_name = @room.room_name
