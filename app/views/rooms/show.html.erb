@@ -28,7 +28,7 @@
           <td class="post-name-box"><%= link_to r.room_name, edit_room_path(r.id), class: "post-name-link" %></td>
           <td class="post-introduction"><%= r.room_introduction %></td>
           <td class="post-text">¥<%= r.room_price %></td>
-          <td class="post-text"><%= r.created_at %></td>
+          <td class="post-text"><%= r.created_at.strftime("%Y-%m-%d %H:%M") %></td>
         </tr>
 
         <% end %>

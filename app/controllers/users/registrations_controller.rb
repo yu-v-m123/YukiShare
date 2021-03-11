@@ -70,7 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :image, :introduction])
+    params.permit(:username, :image, :introduction)
   end
   # def update_resource(resource, params)
   #   resource.update_without_password(params)

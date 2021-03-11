@@ -30,7 +30,7 @@
           <td class="post-text">¥<%= r.sum %></td>
           <td class="post-text"><%= r.start %></td>
           <td class="post-text"><%= r.finish %></td>
-          <td class="post-text"><%= r.created_at %></td>
+          <td class="post-text"><%= r.created_at.strftime("%Y-%m-%d %H:%M") %></td>
         </tr>
 
         <% end %>
