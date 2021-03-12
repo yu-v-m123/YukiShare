@@ -7,8 +7,5 @@ class User < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :reservation, dependent: :destroy
 
-  # validates :image presence: ture
-  # validates :name presence: ture
-  # validates : presence: ture
   mount_uploader :image, ImageUploader
 end
