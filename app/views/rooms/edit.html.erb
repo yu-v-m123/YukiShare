@@ -1,0 +1,43 @@
+<main>
+  <div class="room-post-wrapper">
+
+    <div class="room-post-box">
+      <div class="room-post-img">
+        <%= image_tag "#{@room.room_image}", class: "post-image" %>
+      </div>
+
+      <div class="room-post-user">
+      
+        <% if @user.image? %>
+        <%= link_to image_tag(@user.image.url(:thumb), class: "room-post-icon", alt: "アイコン"), "/top", class: "user-link" %>
+        <% else %>
+        <%= link_to image_tag("default.jpg" ,class: "room-post-icon", alt: "アイコン"), "/top" %>
+        <% end %>
+        <div class="room-post-information">
+          <h3 class="room-post-name">
+            <%= @room.room_name %>
+          </h3>
+          <p class="room-post-address">
+            <%= @room.room_address %>
+          </p>
+        </div>
+      </div>
+
+      <p class="room-post-introduction">
+        <%= @room.room_introduction %>
+      </p>
+    </div>
+
+    <div class="room-reservation-box">
+      <p class="room-post-price">¥<%= @room.room_price %>／日</p>
+      <div class="next-form">
+        <% if login? %>
+        <%= link_to("ログインして予約する", new_user_session_path, class: "signin-btn") %>
+        <% else %>
+        <%= link_to "予約画面に進む", new_room_reservation_path(@room), class: "signin-btn" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</main>

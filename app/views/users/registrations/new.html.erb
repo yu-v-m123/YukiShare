@@ -1,0 +1,42 @@
+<main>
+  <div class="sign-wrapper">
+
+    <%= render "users/shared/error_messages", resource: resource %>
+    <div class="sign-title">
+      <p>新しいアカウントを作成</p>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <div class="field-box">
+      <div class="field">
+
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "ユーザー名", class: "sign-input" %>
+      </div>
+
+      <div class="field">
+
+        <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", class: "sign-input"%>
+      </div>
+
+      <div class="field">
+
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "sign-input" %>
+      </div>
+
+      <div class="field">
+
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", class: "sign-input" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新しいアカウントを作成", class: "sign-submit" %>
+      </div>
+      <% end %>
+
+      <div class="other">
+        <%= render "users/shared/links" %>
+      </div>
+    </div>
+  </div>
+</main>

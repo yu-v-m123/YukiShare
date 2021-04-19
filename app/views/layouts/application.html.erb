@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>YukiShare</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>YukiShare</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <header class="header">
+    <nav class="header-inner">
+      <div class="header-inner-left">
+        <%= link_to image_tag("/assets/logo.png"), "/top" %>
+        <div class="searchbox">
+          <%= search_form_for @search, url: index_room_path do |f| %>
+          <%= f.text_field :room_address_cont, placeholder: "エリア", class: "search" %>
+          <% end %>
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="searchbox">
+          <%= search_form_for @search, url: index_room_path do |f| %>
+          <%= f.text_field :room_name_or_room_introduction_or_room_address_cont, placeholder: "キーワード", class: "search" %>
+          <% end %>
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+      <div class="header-inner-right">
+        <% if login? %>
+        <%= link_to("ログイン", new_user_session_path, class: "signin-btn" ) %>
+        <%= link_to("登録する", new_user_registration_path, class: "signup-btn") %>
+        <% else %>
+        <p class="top-name"><%= current_user.username %></p>
+        <input type="checkbox" id="hamburger-btn-check">
+        <label for="hamburger-btn-check" class="hamburger-btn">
+          <% if current_user.image? %>
+          <%= image_tag current_user.image.url(:thumb), class: "top-icon", alt: "アイコン" %>
+          <% else %>
+          <%= image_tag "default.jpg" ,class: "top-icon", alt: "アイコン" %>
+          <% end %>
+        </label>
+        <div class="hamburger">
+          <ul class="menu">
+            <li class="menu-list"><%= link_to("ルーム登録", new_room_path, class: "menu-list-a") %></li>
+            <li class="menu-list"><%= link_to("予約済みルーム一覧", index_reservation_path, class: "menu-list-a") %></li>
+            <li class="menu-list"><%= link_to("登録済みルーム一覧", post_room_path, class: "menu-list-a") %></li>
+            <li class="menu-list"><%= link_to("設定", account_user_registration_path, {class: "menu-list-a"}) %></li>
+            <li class="menu-list"><%= link_to("ログアウト", destroy_user_session_path, {method: :delete, class: "menu-list-a"}) %></li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+    </nav>
+  </header>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+
+  <footer class="footer">
+    <p class="copyright">© 2020 POTEPAN.INC.</p>
+  </footer>
+</body>
+
 </html>

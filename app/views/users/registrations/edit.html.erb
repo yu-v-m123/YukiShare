@@ -1,0 +1,55 @@
+<main>
+  <div class="edit-wrapper">
+    <div class="edit-container">
+      <div class="edit-title">
+        <h2>アカウント編集</h2>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <div class="edit-box">
+        <div class="edit-field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autocomplete: "email", class: "edit-input" %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="edit-field">
+          <%= f.label :password, "変更後パスワード（変更する場合のみ入力）"%>
+          <%= f.password_field :password, autocomplete: "new-password", class: "edit-input" %>
+        </div>
+
+        <div class="edit-field">
+          <%= f.label :password_confirmation, "パスワード確認用（変更する場合のみ入力）" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "edit-input" %>
+        </div>
+
+        <div class="edit-field">
+          <%= f.label :current_password, "現在のパスワード" %>
+          <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力", class: "edit-input"%>
+        </div>
+
+        <div class="edit-action">
+          <%= f.submit "更新", class: "account-edit-btn" %>
+        </div>
+        <% end %>
+
+        <div class="back-box">
+          <%= link_to "戻る", account_user_registration_path, class: "back" %>
+        </div>
+        <div class="delete-box">
+          <div class="delete-text">
+            <h2>アカウント削除</h2>
+          </div>
+          <div class="delete-btn">
+            <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "アカウントを削除しますか?" }, method: :delete, class: "delete-btn-action" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

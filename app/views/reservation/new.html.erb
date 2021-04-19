@@ -1,0 +1,34 @@
+<main>
+
+  <div class="reservation-form-page">
+
+    <div class="reservation-title">
+      <h2>ルーム予約画面</h2>
+    </div>
+    <%= render "users/shared/error_reservation", obj: @reservation %>
+
+    <div class="reservation-form-box">
+
+      <div class="reservation-price">
+        <p class="room-post-price">¥<%= @room.room_price %>／日</p>
+      </div>
+
+      <%= form_for [@room, @reservation], url: room_reservation_confirm_path(@room), local: true do |f| %>
+
+      <div class="reservation-form">
+        <p class="form-text">開始日</p>
+        <%= f.date_field :start, class: "input-calendar" %>
+        <p class="form-text">終了日</p>
+        <%= f.date_field :finish, class: "input-calendar" %>
+        <p class="form-text">人数</p>
+        <%= f.number_field :count, class: "input-count" %>
+
+        <div class="reservation-submit"><%= f.submit "確認画面へ進む", class: "reservation-btn" %></div>
+      </div>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</main>

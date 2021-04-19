@@ -1,0 +1,28 @@
+<main>
+  <div class="room-search-wrapper">
+    <div class="room-count">
+      <p>検索結果 : <%= @count %>件</p>
+    </div>
+
+    <div class="room-chart">
+      <% @search_articles.each do |s| %>
+      <div class="room-select">
+      <%= link_to edit_room_path(s), class: "room-link" do %>
+        <div class="room-image-box">
+          <% if s.room_image? %>
+          <img src="<%= s.room_image %>" class="room-image-select" alt="部屋画像">
+          <% else %>
+          <%= image_tag "default.jpg", alt: "部屋画像" %>
+          <% end %>
+        </div>
+        <div class="room-text-box">
+          <p class="room-name-select"><%= s.room_name %></p>
+          <p class="room-address-select"><%= s.room_address %></p>
+          <p class="room-price-select"><%= s.room_price %></p>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,40 @@
+<main>
+  <div class="dicision-wrapper">
+    <div class="dicision-container">
+      <div class="dicision-box">
+        <div class="dicision-content">
+          <div class="dicision-row">
+            <label class="discription first-text-f">予約した部屋</label>
+            <div class="discription-text">
+              <%= link_to "#{@reservation.reservation_name}", edit_room_path(@reservation.room_id), class: "discription-link" %>
+            </div>
+          </div>
+        </div>
+        <div class="dicision-content">
+          <div class="dicision-row">
+            <label class="discription">開始日</label>
+            <div class="discription-text">
+              <%= @reservation.start %>
+            </div>
+          </div>
+        </div>
+        <div class="dicision-content">
+          <div class="dicision-row">
+            <label class="discription">終了日</label>
+            <div class="discription-text">
+              <%= @reservation.finish %>
+            </div>
+          </div>
+        </div>
+        <div class="dicision-content">
+          <div class="dicision-row">
+            <label class="discription last-text-l">価格</label>
+            <div class="discription-text">
+              <%= @reservation.sum %>円
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

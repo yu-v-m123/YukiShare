@@ -1,0 +1,55 @@
+<main>
+
+  <div class="confirm-wrapper">
+    <%= render "users/shared/error_reservation", obj: @reservation %>
+    <%= form_for @reservation, url: room_reservation_create_path do |f| %>
+    <div class="confirm-container">
+      <div class="confirm-title">
+        <h2>予約内容確認</h2>
+      </div>
+      <p class="room-reservation-price">
+        ¥<%= @price %>／日
+      </p>
+      <div class="reservation-data-hidden">
+        <p class="reservation-data">
+          <%= f.text_field :reservation_name, readonly: true %>
+        </p>
+        <p class="reservation-data">
+          <%= f.text_field :reservation_introduction, readonly: true %>
+        </p>
+        <p class="reservation-data">
+          <%= f.text_field :reservation_image, readonly: true %>
+        </p>
+      </div>
+      <p class="reservation-data">
+        <span>開始日</span>
+        <%= f.text_field :start, readonly: true, class: "reservation_form_field"%>
+      </p>
+      <p class="reservation-data">
+        <span>終了日</span>
+        <%= f.text_field :finish, readonly: true, class: "reservation_form_field" %>
+      </p>
+      <p class="reservation-data data-day">
+        使用日数 : <%= @day %>日
+      </p>
+      <p class="reservation-data">
+        <span>人数</span>
+        <%= f.number_field :count, readonly: true, class: "reservation_form_field" %>
+      </p>
+      <p class="reservation-data">
+        <span>合計金額</span>
+        <%= f.number_field :sum, readonly: true, class: "reservation_form_field" %>
+      </p>
+      <p class="confirm-text">
+        上記内容でよろしければ「予約を確定」を押してください
+      </p>
+
+      <%= f.submit "予約を確定", class: "reservation-submit-btn" %>
+
+      <%= link_to "ルーム詳細に戻る", edit_room_path(@reservation.room_id), class: "back-room-btn" %>
+
+    </div>
+    <% end %>
+  </div>
+
+</main>
